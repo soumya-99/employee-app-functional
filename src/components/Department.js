@@ -19,14 +19,14 @@ function Department() {
 	}, [])
 
 	// Deleting Department
-	const deleteDepartment = (departmentId) => {
+	const deleteDepartment = async (departmentId) => {
 		const originalDepartments = [...departments]
 		const newArrayOfDepatments = departments.filter(
 			(dep) => dep.DepartmentID !== departmentId.DepartmentID
 		)
 		setDepartments(newArrayOfDepatments)
 		try {
-			axios.delete(`${API_ENDPOINT}department/${departmentId.DepartmentID}`)
+			await axios.delete(`${API_ENDPOINT}department/${departmentId.DepartmentID}`)
 		} catch (error) {
 			if (error.response && error.response.status === 404)
 				alert("404 Not Found")
@@ -84,7 +84,11 @@ function Department() {
 									value={inputField}
 									onChange={(e) => setInputField(e.target.value)}
 								/>
-								<button type="submit" className="btn btn-success mt-5" disabled={!inputField}>
+								<button
+									type="submit"
+									className="btn btn-success mt-5"
+									disabled={!inputField}
+								>
 									Save Changes
 								</button>
 							</form>
