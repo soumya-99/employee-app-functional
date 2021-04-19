@@ -19,7 +19,7 @@ function NavigationBar() {
 			</button>
 			<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div className="navbar-nav">
-					<NavLink className="nav-item nav-link active" to="/">
+					<NavLink className="nav-item nav-link" to="/">
 						Home <span className="sr-only">(current)</span>
 					</NavLink>
 					<NavLink className="nav-item nav-link" to="/department">
